@@ -4,22 +4,133 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>delgratech</title>
+  <meta name="description" content="Delgratech — innovation & solutions" />
+
   <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; background:#f7fafc; color:#0f172a; }
-    .card { max-width:720px; padding:28px; border-radius:12px; background:white; box-shadow:0 6px 24px rgba(2,6,23,0.08); }
-    a { color:#2563eb; text-decoration:none; }
-    code { background:#f3f4f6; padding:2px 6px; border-radius:6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; }
+    /* Load the custom font (place font files in /fonts/, see instructions) */
+    @font-face {
+      font-family: "NerverMindBahaus";
+      src: url("./fonts/NerverMindBahausDemibold.woff2") format("woff2"),
+           url("./fonts/NerverMindBahausDemibold.woff") format("woff");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Base resets */
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #6b7280;
+      --accent: #0b6cff;
+    }
+    html,body {
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family: "NerverMindBahaus", "Futura", "Avenir", "Segoe UI", Roboto, -apple-system, system-ui, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Layout */
+    .page {
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:48px 20px;
+      box-sizing:border-box;
+    }
+
+    /* Card for logo / title */
+    .hero {
+      text-align:center;
+      max-width:980px;
+      width:100%;
+      padding:48px 28px;
+    }
+
+    .logo {
+      display:block;
+      margin:0 auto 20px;
+      max-width:320px;
+      width:50%;
+      height:auto;
+    }
+
+    h1 {
+      margin:0 0 6px;
+      font-size:2.2rem;
+      letter-spacing:0.02em;
+      font-weight:600;
+    }
+
+    p.lead {
+      margin:0;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    /* Contact bar fixed to bottom */
+    .contact-bar {
+      width:100%;
+      background:transparent;
+      position:fixed;
+      left:0;
+      bottom:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      pointer-events:none; /* allow clicks only on child buttons */
+    }
+    .contact {
+      pointer-events:auto;
+      background:rgba(255,255,255,0.95);
+      border-radius:999px;
+      padding:10px 18px;
+      box-shadow:0 6px 20px rgba(2,6,23,0.08);
+      display:flex;
+      gap:14px;
+      align-items:center;
+      font-size:0.95rem;
+      color:var(--text);
+    }
+    .contact a {
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* Small screen adjustments */
+    @media (max-width:640px) {
+      .logo { width:70%; max-width:260px; }
+      h1 { font-size:1.6rem; }
+      .hero { padding:28px 16px; }
+      .contact { font-size:0.9rem; padding:8px 12px; }
+    }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Welcome to delgratech</h1>
-    <p>This is the starter site for delgratech.com served with GitHub Pages. Replace this content with your own text or connect a static site generator (Hugo, Jekyll, Eleventy).</p>
-    <ul>
-      <li>Edit <code>index.html</code> and push to update the site.</li>
-      <li>To add a custom domain, GitHub Pages uses a <code>CNAME</code> file at the repo root.</li>
-    </ul>
-    <p>Contact: <a href="mailto:hello@delgratech.com">hello@delgratech.com</a></p>
-  </main>
+  <div class="page" role="main">
+    <header class="hero" aria-label="Hero">
+      <!-- Replace logo.png with your real logo file -->
+      <img class="logo" src="logo.png" alt="Delgratech logo" />
+      <h1>Delgratech</h1>
+      <p class="lead">We design and build modern web experiences. Get in touch to collaborate.</p>
+    </header>
+  </div>
+
+  <div class="contact-bar" aria-hidden="false">
+    <div class="contact" role="contentinfo">
+      <div>Contact: <a href="mailto:hello@delgratech.com">hello@delgratech.com</a></div>
+      <div style="opacity:.6;">&nbsp;•&nbsp;</div>
+      <div><a href="https://github.com/delgratech" target="_blank" rel="noopener">GitHub</a></div>
+      <div style="opacity:.6;">&nbsp;•&nbsp;</div>
+      <div><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+  </div>
 </body>
 </html>
